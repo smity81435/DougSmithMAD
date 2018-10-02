@@ -12,16 +12,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
    
     @IBOutlet weak var skiLength: UITextField!
-    
     @IBOutlet weak var skiWidth: UITextField!
-    
     @IBOutlet weak var numberOfSkis: UITextField!
-    
     @IBOutlet weak var time: UILabel!
-    
     @IBOutlet weak var wax: UILabel!
     
-    @IBAction func onTapGestureRecognized(_ sender: AnyObject) {
+    @IBAction func onTapGestureRecognized(_ sender: Any) {
+        view.endEditing(true)
+        skiLength.resignFirstResponder()
+        numberOfSkis.resignFirstResponder()
+        skiWidth.resignFirstResponder()
+    }
+    
+    @IBAction func tapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
         skiLength.resignFirstResponder()
         numberOfSkis.resignFirstResponder()
         skiWidth.resignFirstResponder()
@@ -32,8 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
-    
     override func viewDidLoad() {
         skiLength.delegate=self
         skiWidth.delegate=self
@@ -41,8 +43,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    
     
     func updateSkiTotals(){
         var length, width :Float
@@ -84,14 +84,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 })
                 alert.addAction(okAction)
                 present(alert, animated:true,completion: nil)
-                
             } //end else
         }
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSkiTotals()
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -14,7 +14,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="lab3" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -110,6 +110,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="glP-6U-cj1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="SAP-fS-UiJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="glP-6U-cj1" secondAttribute="bottom" constant="20" id="j8b-xZ-rNw"/>
@@ -117,6 +118,10 @@
                             <constraint firstItem="glP-6U-cj1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mCA-gY-aOZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <action selector="onTapGestureRecognized:" destination="BYZ-38-t0r" eventType="touchDown" id="2V1-hx-69L"/>
+                            <outletCollection property="gestureRecognizers" destination="q9b-Xx-eQh" appends="YES" id="85b-4J-xxM"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="numberOfSkis" destination="WsE-c0-Dbx" id="OKn-ey-5D8"/>
@@ -127,9 +132,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3vh-Da-aRd">
+                <tapGestureRecognizer id="q9b-Xx-eQh">
                     <connections>
-                        <action selector="onTapGestureRecognized:" destination="BYZ-38-t0r" id="FpJ-AO-hMj"/>
+                        <action selector="tapped:" destination="BYZ-38-t0r" id="5TF-Yu-XBW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
