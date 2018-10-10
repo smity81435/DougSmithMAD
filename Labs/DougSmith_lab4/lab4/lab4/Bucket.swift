@@ -7,14 +7,9 @@
 //
 
 import Foundation
-class Bucket{
+struct Bucket: Codable{
     var buckItem: String?
-    var buckAge: Int?
-//    init(){
-//        buckItem = "Your Bucket Item"
-//        buckAge = 69
-//        
-//
-//    }
+    var buckAge: String?
+
 }
 

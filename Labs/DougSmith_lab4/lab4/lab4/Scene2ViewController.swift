@@ -36,7 +36,7 @@ class Scene2ViewController: UIViewController, UITextFieldDelegate {
                 
             }
             if userAge.text!.isEmpty == false{
-                scene1ViewController.user.buckAge = Int((userAge.text)!)
+                scene1ViewController.user.buckAge = userAge.text
             }
         }
 //         segue.destination.
