@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="midterm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="M2I-Df-FpJ" userLabel="switch">
+                                <rect key="frame" x="10" y="60" width="355" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ed-oV-NbK">
+                                        <rect key="frame" x="0.0" y="5.5" width="102.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-ht-uWI">
+                                        <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="weeklyswitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="nR2-ox-hlr"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-Zc-x8H" userLabel="time">
+                                <rect key="frame" x="10" y="20" width="355" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQn-w9-iPF">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-qE-FXf">
+                                        <rect key="frame" x="176" y="0.0" width="179" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="76C-Zi-Tfe" userLabel="slider">
+                                <rect key="frame" x="10" y="101" width="355" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workouts/Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRr-og-5by">
+                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k0-TC-dgn">
+                                        <rect key="frame" x="148.5" y="0.0" width="39" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="6B6-Bv-ZUW">
+                                        <rect key="frame" x="196.5" y="0.0" width="160.5" height="31"/>
+                                        <connections>
+                                            <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="1j0-LC-Xzl"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-xG-pDC">
+                                <rect key="frame" x="10" y="141" width="355" height="29"/>
+                                <segments>
+                                    <segment title="Run"/>
+                                    <segment title="Swim"/>
+                                    <segment title="Bike"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segone:" destination="BYZ-38-t0r" eventType="valueChanged" id="FSv-8A-hEs"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDn-pg-nKc">
+                                <rect key="frame" x="158.5" y="179" width="58" height="30"/>
+                                <state key="normal" title="Workout"/>
+                                <connections>
+                                    <action selector="wobutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lrU-Q1-MqR"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="43u-FM-XPx">
+                                <rect key="frame" x="140.5" y="219" width="94.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kX-H2-cCZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBt-OG-MRd">
+                                        <rect key="frame" x="54.5" y="0.0" width="40" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-c1-A6H">
+                                <rect key="frame" x="99.5" y="249.5" width="176.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beg-td-JZa">
+                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories Burned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZE-Yc-aet">
+                                        <rect key="frame" x="54.5" y="0.0" width="122" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-c0-EaG">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ieR-Gj-67S"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Info" width="620" id="A5x-k1-GdV"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="run" translatesAutoresizingMaskIntoConstraints="NO" id="DkU-Rb-alX">
+                                <rect key="frame" x="94" y="484" width="186" height="127"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gYa-c1-A6H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="65d-Gw-buY"/>
+                            <constraint firstItem="ESY-c0-EaG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7VT-YM-Xok"/>
+                            <constraint firstItem="43u-FM-XPx" firstAttribute="top" secondItem="SDn-pg-nKc" secondAttribute="bottom" constant="10" id="9Ca-bd-HEF"/>
+                            <constraint firstItem="SDn-pg-nKc" firstAttribute="top" secondItem="MlP-xG-pDC" secondAttribute="bottom" constant="10" id="EOx-mB-ZFG"/>
+                            <constraint firstItem="gYa-c1-A6H" firstAttribute="top" secondItem="43u-FM-XPx" secondAttribute="bottom" constant="10" id="GSJ-lW-6xb"/>
+                            <constraint firstItem="WyV-Zc-x8H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="H3A-pM-7L5"/>
+                            <constraint firstItem="WyV-Zc-x8H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="J71-K0-nSd"/>
+                            <constraint firstItem="M2I-Df-FpJ" firstAttribute="top" secondItem="WyV-Zc-x8H" secondAttribute="bottom" constant="10" id="KQa-5s-wXh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WyV-Zc-x8H" secondAttribute="trailing" constant="10" id="PBH-b4-GQ0"/>
+                            <constraint firstItem="76C-Zi-Tfe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="RhG-nL-tQA"/>
+                            <constraint firstItem="DkU-Rb-alX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wm8-0K-n7w"/>
+                            <constraint firstItem="ESY-c0-EaG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XAf-QB-9Ib"/>
+                            <constraint firstItem="43u-FM-XPx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ciU-jG-oTx"/>
+                            <constraint firstItem="MlP-xG-pDC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ef5-bY-Klg"/>
+                            <constraint firstAttribute="trailing" secondItem="76C-Zi-Tfe" secondAttribute="trailing" constant="10" id="f3D-Bf-AB2"/>
+                            <constraint firstItem="M2I-Df-FpJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gE9-O5-0Sd"/>
+                            <constraint firstItem="76C-Zi-Tfe" firstAttribute="top" secondItem="M2I-Df-FpJ" secondAttribute="bottom" constant="10" id="jQo-ah-Dv5"/>
+                            <constraint firstItem="MlP-xG-pDC" firstAttribute="top" secondItem="76C-Zi-Tfe" secondAttribute="bottom" constant="10" id="jZN-Rj-Kdv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M2I-Df-FpJ" secondAttribute="trailing" constant="10" id="l6G-ce-s77"/>
+                            <constraint firstItem="ESY-c0-EaG" firstAttribute="top" secondItem="DkU-Rb-alX" secondAttribute="bottom" constant="16" id="li8-bp-3oe"/>
+                            <constraint firstItem="ESY-c0-EaG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rjA-2M-5GU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MlP-xG-pDC" secondAttribute="trailing" constant="10" id="tfz-jA-PKl"/>
+                            <constraint firstItem="SDn-pg-nKc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z6f-GP-T2a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="calburned" destination="beg-td-JZa" id="uP0-Kp-zIg"/>
+                        <outlet property="distance" destination="7kX-H2-cCZ" id="J5U-lQ-mIM"/>
+                        <outlet property="sliderone" destination="6B6-Bv-ZUW" id="VRg-wG-Bb6"/>
+                        <outlet property="units" destination="GBt-OG-MRd" id="IMP-IS-vds"/>
+                        <outlet property="weekSwitch" destination="EQa-ht-uWI" id="EHo-Se-PsE"/>
+                        <outlet property="woimg" destination="DkU-Rb-alX" id="Z0D-8H-cTM"/>
+                        <outlet property="wonum" destination="4k0-TC-dgn" id="YqT-Xb-NmC"/>
+                        <outlet property="wotime" destination="EZ5-qE-FXf" id="288-8W-Bib"/>
+                        <outlet property="wotype" destination="MlP-xG-pDC" id="yIQ-Ee-zSq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="run" width="256" height="246"/>
+    </resources>
+</document>
