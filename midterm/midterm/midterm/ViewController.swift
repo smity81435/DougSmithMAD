@@ -100,10 +100,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func updateWeek(){
         if weekSwitch.isOn{
             wocalc(wocf: 4)
-        }else {
-           
         }
-        
     }
 //    UPDATE WORKOUT
     func updateWO(){
