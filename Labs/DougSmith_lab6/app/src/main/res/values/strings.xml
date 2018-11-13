@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Lab 6</string>
+    <string name="dog_breed_picker">Dog Breed Picker</string>
+    <string name="longhair">Longhair</string>
+    <string name="shorthair">Shorthair</string>
+    <string name="compute">Compute</string>
+    <string name="textview">TextView</string>
+    <string name="breedone">boxer</string>
+    <string name="breedotwo">Chihuahua</string>
+    <string name="breedthree">St. Bernard</string>
+    <string name="family_dog">Family Dog</string>
+    <string name="sporty_dog">Sporty Dog</string>
+    <string name="show_dog">Show Dog</string>
+    <string name="which_dog_is_right_for_you">Which dog is right for you?</string>
+    <string name="guard_dog">Guard Dog</string>
+    <string name="lap_dog">Lap Dog</string>
+    <string name="hunting_dog">Hunting Dog</string>
+    <string name="todo">TODO</string>
+    <string-array name="sizeList">
+        <item name="sizeOne">Small</item>
+        <item name="sizeTwo">Medium</item>
+        <item name="sizeThree">Large</item>
+    </string-array>
+
+</resources>
