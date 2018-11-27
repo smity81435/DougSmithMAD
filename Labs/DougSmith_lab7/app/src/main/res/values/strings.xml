@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">lab7</string>
+    <string name="title">Find Brewery</string>
+    <string name="choose_your_crowd">Choose your crowd</string>
+    <string name="find_it">Find It!</string>
+    <string name="todo">TODO</string>
+    <string name="suggested_brewery">Suggested Brewery</string>
+    <string name="textview">TextView</string>
+    <!--<string name="todo">TODO</string>-->
+    <string-array name="crowds">
+        <item>Nice</item>
+        <item>Smug</item>
+        <item>Chill</item>
+        <item>Hip</item>
+        <item>Nerdy</item>
+        <item>Kinda Gross</item>
+    </string-array>
+</resources>

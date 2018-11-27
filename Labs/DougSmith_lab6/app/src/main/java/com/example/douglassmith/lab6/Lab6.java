@@ -14,21 +14,41 @@ import android.widget.ToggleButton;
 public class Lab6 extends AppCompatActivity {
 
     //strings
-    String perfectDog;
-    String deemer;
-    
+    private ImageView img;
+    private TextView deem;
+    private TextView dogSelection;
+    private String perfectDog;
+    private String deemer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab6);
+        deem = findViewById(R.id.deem);
+        img = findViewById(R.id.dogPic);
+        dogSelection = findViewById(R.id.dogbreedname);
+
+        if(savedInstanceState != null) {
+            deemer = savedInstanceState.getString("msg");
+            perfectDog = savedInstanceState.getString("msg2");
+            int image_id =  savedInstanceState.getInt("imgid");
+            deem.setText(deemer);
+            dogSelection.setText(perfectDog);
+            img.setImageResource(image_id);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putString("msg",deemer);
+        outState.putString("msg2",perfectDog);
+        int newId = img.getId();
+        outState.putInt("imgid",newId);
     }
 
     //compute function
     public void computeBreed(View view) {
-
-        //imageview
-        ImageView img = findViewById(R.id.dogPic);
-        TextView deem = findViewById(R.id.deem);
 
         //checkboxes
         CheckBox guard =findViewById(R.id.box1);
@@ -39,7 +59,6 @@ public class Lab6 extends AppCompatActivity {
 
         CheckBox hunt =findViewById(R.id.box3);
         boolean hunting = hunt.isChecked();
-
 
         //Spinner
         Spinner size = findViewById(R.id.spinner);
@@ -66,7 +85,6 @@ public class Lab6 extends AppCompatActivity {
         }
         //if they didnt chose a demeanor
         if(didId == -1){
-
             //warn the user in a "toast"
             Context context = getApplicationContext();
             CharSequence text = "Please Select a demeanor.";
@@ -81,8 +99,6 @@ public class Lab6 extends AppCompatActivity {
                     //hair is default to longhair
                     switch (sizeType) {
                         //sizeType is the size of the dog
-
-
                         case "Small":
                             //small long-hair dogs
                             img.setImageResource(R.drawable.terrier);
@@ -91,12 +107,10 @@ public class Lab6 extends AppCompatActivity {
                                 perfectDog= "Hunt with a bigger dog.";
                                 img.setImageResource(R.drawable.chi);
                             }
-
                             if(guarding){
                                 perfectDog = "Get a larger dog.";
                                 img.setImageResource(R.drawable.chi);
                             }
-
                             if (lapping) {
                                 perfectDog = "A Cat is the right dog for you.";
                                 img.setImageResource(R.drawable.cat);
@@ -142,7 +156,7 @@ public class Lab6 extends AppCompatActivity {
                             img.setImageResource(R.drawable.cat);
                     }
                 } else {
-                    //shorthair dogs
+                    //short-hair dogs
                     switch (sizeType) {
                         //small short-hair dogs
                         case "Small":
@@ -195,13 +209,12 @@ public class Lab6 extends AppCompatActivity {
                             img.setImageResource(R.drawable.cat);
                     }
                 }
-
         }
+        //dog type text view
 
-        TextView dogSelection = findViewById(R.id.dogbreedname);
         dogSelection.setText(perfectDog);
         deem.setText(deemer);
-        System.out.print(didId);
+        //System.out.print(didId);
 
     }
 }
