@@ -38,6 +38,7 @@ public class RTbeer extends AppCompatActivity {
     }
 
     public void loadWebSite(View view){
+        //implicit intent
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(breweryURL));
         startActivity(intent);

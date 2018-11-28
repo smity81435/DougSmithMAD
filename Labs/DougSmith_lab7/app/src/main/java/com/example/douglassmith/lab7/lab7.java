@@ -33,7 +33,7 @@ public class lab7 extends AppCompatActivity {
         String suggestedBreweryURL = myBrewery.getBreweryUrl();
         Log.i("shop", suggestedBrewery);
         Log.i("url", suggestedBreweryURL);
-
+        //explicit intent
         Intent intent = new Intent(this, RTbeer.class);
         intent.putExtra("breweryTitle",suggestedBrewery);
         intent.putExtra( "brewerySugURL", suggestedBreweryURL);
