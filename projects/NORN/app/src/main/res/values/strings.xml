@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">NORN</string>
+    <string name="mercText">Mercury Retrograde:</string>
+    <string name="marsText">Mars:</string>
+    <string name="marsStatus">rising</string>
+    <string name="moonText">Moon Phase:</string>
+    <string name="phase">full</string>
+    <string name="date">24 May 2017</string>
+    <string name="question">Question</string>
+    <string name="isMerc">active</string>
+    <string name="fortune">Be Careful NAvigating this week, The heavens are tumultuous!</string>
+    <string name="marsDesc">Mars</string>
+    <string name="mercDesc">Mercury</string>
+    <string name="moonDesc">Moon</string>
+    <string name="calDesc">calendar</string>
+    <string name="questDesc">question</string>
+
+
+</resources>

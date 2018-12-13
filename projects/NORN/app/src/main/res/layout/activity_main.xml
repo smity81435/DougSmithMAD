@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/norn"
+        android:fontFamily="@font/bebas"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/cal"
+        android:layout_width="68dp"
+        android:layout_height="69dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/calDesc"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/cal" />
+
+    <TextView
+        android:id="@+id/currentDate"
+        android:layout_width="243dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/date"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/question"
+        android:layout_width="64dp"
+        android:layout_height="72dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/questDesc"
+        android:scaleType="fitCenter"
+        android:onClick="openDatePicker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/currentDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/quest" />
+
+    <TextView
+        android:id="@+id/fortune"
+        android:layout_width="378dp"
+        android:layout_height="66dp"
+        android:backgroundTint="@android:color/black"
+        android:fontFamily="@font/bebas"
+        android:gravity="center_vertical"
+        android:text="@string/fortune"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/mercPic"
+        android:layout_width="112dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/mercDesc"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/merc" />
+
+    <TextView
+        android:id="@+id/mercTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/mercText"
+        android:textColor="@color/orange"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/mercPic"
+        app:layout_constraintTop_toTopOf="@+id/mercPic"
+        tools:text="Mercury Retrograde:" />
+
+    <TextView
+        android:id="@+id/isMercRet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/isMerc"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mercPic"
+        app:layout_constraintTop_toBottomOf="@+id/mercTitle" />
+
+    <ImageView
+        android:id="@+id/moonPic"
+        android:layout_width="138dp"
+        android:layout_height="162dp"
+        android:contentDescription="@string/moonDesc"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mercPic"
+        app:srcCompat="@drawable/full" />
+
+    <TextView
+        android:id="@+id/moonTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/moonText"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/moonPic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/moonPic" />
+
+    <TextView
+        android:id="@+id/phaseText"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/phase"
+        android:textColor="@android:color/background_light"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/moonPic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moonTitle" />
+
+    <ImageView
+        android:id="@+id/marsPic"
+        android:layout_width="142dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/marsDesc"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phaseText"
+        app:srcCompat="@drawable/mars" />
+
+    <TextView
+        android:id="@+id/MarsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/marsText"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/marsStat"
+        app:layout_constraintTop_toBottomOf="@+id/moonPic" />
+
+    <TextView
+        android:id="@+id/marsStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/bebas"
+        android:text="@string/marsStatus"
+        android:textColor="@android:color/background_light"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/marsPic"
+        app:layout_constraintTop_toBottomOf="@+id/MarsTitle" />
+
+
+</android.support.constraint.ConstraintLayout>
