@@ -2,6 +2,10 @@ package com.example.douglassmith.norn;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,13 +34,18 @@ import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    public double lat = 40.0150;
+    public double lon = -105.2705;
     public static final int REQUEST_CODE_GETDATE = 666;
     private Fortune myFortune = new Fortune();
     public String fullDate;
     public int Month;
     public int Day;
     public int Year;
-    public int MercScore =0;
+    public int MercScore = 0;
+    public int moonScore = 0;
+
 
 
 //    private Button pickDateButton;
@@ -57,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     TextView dateplace = findViewById(R.id.currentDate); //bottom date
                     final TextView mercuryRet = findViewById(R.id.isMercRet);  //Merc Retro Text
-                    TextView moonPhase = findViewById(R.id.phaseText); //Moon Phase Text
+                    final TextView moonPhase = findViewById(R.id.phaseText); //Moon Phase Text
                     TextView marsStat = findViewById(R.id.marsStat); //Moon Phase Text
                     dateplace.setText(dateString); //set bottom date
 
@@ -78,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
                                         }else{
                                             MercScore = 0;
                                             Log.i("myApp","No Retrograde!");
-                                            mercuryRet.setText("no");
+                                            mercuryRet.setText("inactive");
+
                                         }
                                     }catch(JSONException e){ //CATCH MERCURY FAIL
                                         Log.i("myApp","Damn it!");
@@ -87,60 +97,57 @@ public class MainActivity extends AppCompatActivity {
                             },new Response.ErrorListener(){
                         @Override
                         public void onErrorResponse(VolleyError error){
-                            mercuryRet.setText("Whoops");
-                            Log.i("myApp","shit");
+                            mercuryRet.setText("inactive");
+                            Log.i("myApp","Failed to retrieve retrograde");
                         }
                     });
                     queue.add(jsonObjectRequest);
                     //END MERCURY REQUEST
 
                     //MOON JSON REQUEST
-                    String moonurl = "https://api.usno.navy.mil/moon/phase?date="+month+"/"+day+"/"+year+"&nump=1";
+                    String moonurl = "https://api.solunar.org/solunar/"+lat+","+lon+","+year+""+month+""+day+",-8";
                     Log.i("myApp",moonurl);
                     final JsonObjectRequest moonJSON = new JsonObjectRequest(Request.Method.GET, moonurl, null,
                             new Response.Listener<JSONObject>(){
                                 @Override
                                 public void onResponse(JSONObject response){
-                                    //try{
+                                    try{
                                         JSONObject obj = response;
                                         Log.i("myApp",obj.toString());
-                                        //String phase = obj.getString("is_retrograde");
-//                                        if(retro == "true"){
-//                                            MercScore = 1;
-//                                            Log.i("myApp","Retrograde Detected!");
-//                                            mercuryRet.setText("active");
-//                                        }else{
-//                                            MercScore = 0;
-//                                            Log.i("myApp","No Retrograde!");
-//                                            mercuryRet.setText("no");
-//                                        }
-                                    //}
-//                                    catch(JSONException e){ //CATCH MERCURY FAIL
-//                                        Log.i("myApp","Damn it!");
-//                                    }
+                                        String phase = obj.getString("moonPhase");
+                                        moonPhase.setText(phase);
+                                        if(phase=="Full"){
+                                            moonScore = 2;
+                                        }else if(phase=="New"){
+                                            moonScore = 1;
+                                        }
+                                    }
+                                    catch(JSONException e){ //CATCH MERCURY FAIL
+                                        Log.i("myApp","Failed to retrieve moon phase.");
+                                    }
                                 }
                             },new Response.ErrorListener(){
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
-                            if (error instanceof TimeoutError ) {
-                                Log.i("myApp","Timeout Fail");
-                            } else if(error instanceof NoConnectionError) {
-                                Log.i("myApp","Connection Fail");
-                            }
-                            else if (error instanceof AuthFailureError) {
-                                Log.i("myApp","Auth Failure");
-                            } else if (error instanceof ServerError) {
-                                Log.i("myApp","Server Failure");
-                            } else if (error instanceof NetworkError) {
-                                Log.i("myApp","Network Failure");
-                            } else if (error instanceof ParseError) {
-                                Log.i("myApp","Parse Failure");
-                            }
+                            Log.i("myApp,""uh oh, somfing is wong!");
+//                            if (error instanceof TimeoutError ) {
+//                                Log.i("myApp","Timeout Fail");
+//                            } else if(error instanceof NoConnectionError) {
+//                                Log.i("myApp","Connection Fail");
+//                            }
+//                            else if (error instanceof AuthFailureError) {
+//                                Log.i("myApp","Auth Failure");
+//                            } else if (error instanceof ServerError) {
+//                                Log.i("myApp","Server Failure");
+//                            } else if (error instanceof NetworkError) {
+//                                Log.i("myApp","Network Failure");
+//                            } else if (error instanceof ParseError) {
+//                                Log.i("myApp","Parse Failure");
+//                            }
                         }
                     });
                     queue.add(moonJSON);
-                    //END MERCURY REQUEST
+                    //END MOON REQUEST
 
                 }
                 break;
