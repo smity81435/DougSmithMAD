@@ -50,6 +50,23 @@
         app:layout_constraintTop_toBottomOf="@+id/aboutTitle"
         app:layout_constraintVertical_bias="0.11" />
 
+    <ImageButton
+        android:id="@+id/blogbutton"
+        android:layout_width="183dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutText"
+        app:srcCompat="@drawable/logobutt" />
+
     <!--<ImageButton-->
         <!--android:id="@+id/imageButton"-->
         <!--android:layout_width="132dp"-->
