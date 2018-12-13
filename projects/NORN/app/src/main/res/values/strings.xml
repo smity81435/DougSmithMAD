@@ -8,7 +8,11 @@
     <string name="date">24 May 2017</string>
     <string name="question">Question</string>
     <string name="isMerc">active</string>
-    <string name="fortune">Be Careful Navigating this week, The heavens are tumultuous!</string>
+    <string name="fortune1">Be Careful Navigating this week, The heavens are tumultuous!</string>
+    <string name="fortune2">The heavens are in your favor, you shall take the world!</string>
+    <string name="fortune3">Take no steps forward without a friend at each side!</string>
+    <string name="fortune4">Perhaps you could think this over a bit longer.</string>
+    <string name="fortune5">Indeed, it would be wise to act now while the heavens prevail!</string>
     <string name="marsDesc">Mars</string>
     <string name="mercDesc">Mercury</string>
     <string name="moonDesc">Moon</string>

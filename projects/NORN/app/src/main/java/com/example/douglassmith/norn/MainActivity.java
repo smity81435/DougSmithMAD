@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -43,15 +44,18 @@ public class MainActivity extends AppCompatActivity {
     public int Month;
     public int Day;
     public int Year;
-    public int MercScore = 0;
-    public int moonScore = 0;
+    private int MercScore;
+    private int moonScore;
+    private int MarsScore;
+    private int totalScore;
 
 
 
 //    private Button pickDateButton;
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+
         Log.i("myApp","Returned the data");
         switch(requestCode){
             case REQUEST_CODE_GETDATE:
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     TextView dateplace = findViewById(R.id.currentDate); //bottom date
                     final TextView mercuryRet = findViewById(R.id.isMercRet);  //Merc Retro Text
                     final TextView moonPhase = findViewById(R.id.phaseText); //Moon Phase Text
-                    TextView marsStat = findViewById(R.id.marsStat); //Moon Phase Text
+                    final TextView marsStat = findViewById(R.id.marsStat); //Moon Phase Text
                     dateplace.setText(dateString); //set bottom date
 
                     //MERCURY JSON REQUEST
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                     try{
                                         JSONObject obj = response;
                                         String retro = obj.getString("is_retrograde");
-                                        if(retro == "true"){
+                                        if(retro.equals("true")){
                                             MercScore = 1;
                                             Log.i("myApp","Retrograde Detected!");
                                             mercuryRet.setText("active");
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
                                             MercScore = 0;
                                             Log.i("myApp","No Retrograde!");
                                             mercuryRet.setText("inactive");
-
                                         }
                                     }catch(JSONException e){ //CATCH MERCURY FAIL
                                         Log.i("myApp","Damn it!");
@@ -106,20 +109,56 @@ public class MainActivity extends AppCompatActivity {
 
                     //MOON JSON REQUEST
                     String moonurl = "https://api.solunar.org/solunar/"+lat+","+lon+","+year+""+month+""+day+",-8";
-                    Log.i("myApp",moonurl);
+                    //Log.i("myApp",moonurl);
                     final JsonObjectRequest moonJSON = new JsonObjectRequest(Request.Method.GET, moonurl, null,
                             new Response.Listener<JSONObject>(){
                                 @Override
                                 public void onResponse(JSONObject response){
                                     try{
                                         JSONObject obj = response;
-                                        Log.i("myApp",obj.toString());
+                                        //Log.i("myApp",obj.toString());
                                         String phase = obj.getString("moonPhase");
                                         moonPhase.setText(phase);
-                                        if(phase=="Full"){
+                                        Log.i("myApp",phase);
+                                        if(phase.equals("Full")){
                                             moonScore = 2;
-                                        }else if(phase=="New"){
+                                        }else if(phase.equals("New")){
                                             moonScore = 1;
+                                        }else if(phase.equals("Half Moon")){
+                                            moonScore=3;
+                                        }else if(phase.equals("Waxing Gibbous")){
+                                            moonScore=1;
+                                        }else if(phase.equals("Waxing Crescent")){
+                                            moonScore=1;
+                                        }else if(phase.equals("Waning Crescent")){
+                                            moonScore = 2;
+                                        }
+                                        totalScore = MarsScore + moonScore + MercScore;
+                                        TextView fortune = findViewById(R.id.fortune);
+
+                                        String logscore = Integer.toString(totalScore);
+                                        Log.i("myApp","logscore: "+logscore+" Moon: "+moonScore+" Merc: "+MercScore+ " Mars: "+MarsScore);
+
+                                        switch(totalScore){
+                                            case 0:
+                                                fortune.setText(getString(R.string.fortune1));
+                                                break;
+                                            case 1:
+                                                fortune.setText(getString(R.string.fortune2));
+                                                break;
+                                            case 2:
+                                                fortune.setText(getString(R.string.fortune3));
+                                                break;
+                                            case 3:
+                                                fortune.setText(getString(R.string.fortune4));
+                                                break;
+                                            case 4:
+                                                fortune.setText(getString(R.string.fortune5));
+                                                break;
+                                            default:
+                                                fortune.setText("Broken.");
+
+
                                         }
                                     }
                                     catch(JSONException e){ //CATCH MERCURY FAIL
@@ -129,29 +168,37 @@ public class MainActivity extends AppCompatActivity {
                             },new Response.ErrorListener(){
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Log.i("myApp,""uh oh, somfing is wong!");
-//                            if (error instanceof TimeoutError ) {
-//                                Log.i("myApp","Timeout Fail");
-//                            } else if(error instanceof NoConnectionError) {
-//                                Log.i("myApp","Connection Fail");
-//                            }
-//                            else if (error instanceof AuthFailureError) {
-//                                Log.i("myApp","Auth Failure");
-//                            } else if (error instanceof ServerError) {
-//                                Log.i("myApp","Server Failure");
-//                            } else if (error instanceof NetworkError) {
-//                                Log.i("myApp","Network Failure");
-//                            } else if (error instanceof ParseError) {
-//                                Log.i("myApp","Parse Failure");
-//                            }
+                            Log.i("myApp","uh oh, somfing is wong! MOON");
                         }
                     });
                     queue.add(moonJSON);
                     //END MOON REQUEST
 
+                    //MARS JSON REQUEST *I gave up on this request due to Volley Connection Errors
+                    if((month+day)%2==0){
+
+
+                        MarsScore = 1;
+                        marsStat.setText("Rising");
+                        Log.i("myApp","Mars Rising");
+
+
+                    }else{
+                        marsStat.setText("Falling");
+                        Log.i("myApp","Mars Falling");
+                    }
+                    //END MARS REQUEST
+
+                    //tally score
+
+
+
+
                 }
                 break;
         }
+
+
     }
 
 
