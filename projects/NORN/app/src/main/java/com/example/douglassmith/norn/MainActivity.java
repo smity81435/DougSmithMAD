@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void sendMessage(View view)
     {
-        Intent intent = new Intent(FromActivity.this, ToActivity.class);
+        Intent intent = new Intent(MainActivity.this, RTcalendar.class);
         startActivity(intent);
     }
 }
