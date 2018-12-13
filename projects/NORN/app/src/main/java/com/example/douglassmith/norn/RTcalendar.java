@@ -1,5 +1,6 @@
 package com.example.douglassmith.norn;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,9 +19,9 @@ import java.util.Date;
 public class RTcalendar extends AppCompatActivity{
     private static final String neededDate = "MainActivity";
     private TextView usedDate; //DATE TEXT
-    public int Month;
-    public int Year;
-    public int Day;
+    public int Month = 0;
+    public int Year = 0;
+    public int Day = 0;
     public String DateString;
     //private Button openPickerButton; //PICK DATE BUTTON
     //private Button nornButton;
@@ -42,14 +43,21 @@ public class RTcalendar extends AppCompatActivity{
         View.OnClickListener nornClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Month == 0 || Day == )
+                if(Month == 0 && Day == 0 && Year == 0){
+                    Log.i("myApp", "Somefing is vewy vewy wong.");
+
+                }
+                Log.i("myApp","Button Pushed");
                 Intent intent = new Intent();
                 intent.putExtra("month", Month);
                 intent.putExtra("day", Day);
                 intent.putExtra("year", Year);
+                intent.putExtra("dateString",DateString);
+                setResult(Activity.RESULT_OK,intent);
                 finish();
             }
         };
+        nornButton.setOnClickListener(nornClick);
 
         SimpleDateFormat formatter
                 = new SimpleDateFormat ("EEE, MMM d, ''yy" );
@@ -66,6 +74,10 @@ public class RTcalendar extends AppCompatActivity{
                 Log.d(neededDate, "Date: date" + year + "/" + month + "/" + day);
                 String date = month+"/"+day+"/"+year;
                 usedDate.setText(date);
+                Year = year;
+                Month = month;
+                Day = day;
+                DateString = date;
             }
 
         };
