@@ -182,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
                         marsStat.setText("Rising");
                         Log.i("myApp","Mars Rising");
 
-
                     }else{
+                        MarsScore = 0;
                         marsStat.setText("Falling");
                         Log.i("myApp","Mars Falling");
                     }
