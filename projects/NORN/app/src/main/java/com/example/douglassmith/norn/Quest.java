@@ -23,7 +23,6 @@ public class Quest extends AppCompatActivity {
         };
         blog.setOnClickListener(clicked);
 
-
     }
 
     public void loadWebSite(View view){

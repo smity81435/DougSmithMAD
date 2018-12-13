@@ -2,10 +2,10 @@ package com.example.douglassmith.norn;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.location.LocationProvider;
+//import android.location.Location;
+//import android.location.LocationListener;
+//import android.location.LocationManager;
+//import android.location.LocationProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,17 +14,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
+//import com.android.volley.AuthFailureError;
+//import com.android.volley.NetworkError;
+//import com.android.volley.NoConnectionError;
+//import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.ServerError;
-import com.android.volley.TimeoutError;
+//import com.android.volley.ServerError;
+//import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+//import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -35,27 +35,15 @@ import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
-
     public double lat = 40.0150;
     public double lon = -105.2705;
     public static final int REQUEST_CODE_GETDATE = 666;
-    private Fortune myFortune = new Fortune();
-    public String fullDate;
-    public int Month;
-    public int Day;
-    public int Year;
     private int MercScore;
     private int moonScore;
     private int MarsScore;
     private int totalScore;
-
-
-
-//    private Button pickDateButton;
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-
         Log.i("myApp","Returned the data");
         switch(requestCode){
             case REQUEST_CODE_GETDATE:
@@ -135,11 +123,9 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                         totalScore = MarsScore + moonScore + MercScore;
                                         TextView fortune = findViewById(R.id.fortune);
-
                                         String logscore = Integer.toString(totalScore);
                                         Log.i("myApp","logscore: "+logscore+" Moon: "+moonScore+" Merc: "+MercScore+ " Mars: "+MarsScore);
-
-                                        switch(totalScore){
+                                        switch(totalScore){ //tally score
                                             case 0:
                                                 fortune.setText(getString(R.string.fortune1));
                                                 break;
@@ -156,9 +142,7 @@ public class MainActivity extends AppCompatActivity {
                                                 fortune.setText(getString(R.string.fortune5));
                                                 break;
                                             default:
-                                                fortune.setText("Broken.");
-
-
+                                                fortune.setText(getString(R.string.error));
                                         }
                                     }
                                     catch(JSONException e){ //CATCH MERCURY FAIL
@@ -173,15 +157,11 @@ public class MainActivity extends AppCompatActivity {
                     });
                     queue.add(moonJSON);
                     //END MOON REQUEST
-
                     //MARS JSON REQUEST *I gave up on this request due to Volley Connection Errors
                     if((month+day)%2==0){
-
-
                         MarsScore = 1;
                         marsStat.setText("Rising");
                         Log.i("myApp","Mars Rising");
-
                     }else{
                         MarsScore = 0;
                         marsStat.setText("Falling");
@@ -189,21 +169,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //END MARS REQUEST
 
-                    //tally score
-
-
-
-
                 }
                 break;
         }
-
-
     }
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -225,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 //explicit
                 Intent intent = new Intent(MainActivity.this, RTcalendar.class);
                 startActivityForResult(intent, REQUEST_CODE_GETDATE);
+                //TESTING DATE
                 //setUsedDate(fullDate);
                 //Log.i("myApp",fullDate);
                 //usedDate.setText(fullDate);
@@ -237,19 +207,12 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton pickQuestButton = findViewById(R.id.question);
         View.OnClickListener questclick = new View.OnClickListener() {
             public void onClick(View v) {
-                //implicit
+                //implicit to RTCalendar
                 Intent intent = new Intent(MainActivity.this, Quest.class);
                 startActivity(intent);
             }
         };
         pickQuestButton.setOnClickListener(questclick);
-
     }
-
-
-
-
-
-
 }
 

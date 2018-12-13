@@ -26,6 +26,7 @@
     <string name="aboutTitle">About NORN</string>
     <string name="active">active</string>
     <string name="inactive">inactive</string>
-
+    <string name="error">There has been an error, check the logs.</string>
+    <string name="blogDesc">This is a link to Douglas Smiths Blog</string>
     <string name="About">The Ancient Norse believed that there were mystical elderly women that controlled the fates of everything living on the planet. They would use the planets to make some of their predictions about the world, and the end of the world, at Ragnarok. This app uses APIs to check astrological statuses and tell you if you should be making big decisions in your life! </string>
 </resources>
