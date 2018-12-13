@@ -8,13 +8,18 @@
     <string name="date">24 May 2017</string>
     <string name="question">Question</string>
     <string name="isMerc">active</string>
-    <string name="fortune">Be Careful NAvigating this week, The heavens are tumultuous!</string>
+    <string name="fortune">Be Careful Navigating this week, The heavens are tumultuous!</string>
     <string name="marsDesc">Mars</string>
     <string name="mercDesc">Mercury</string>
     <string name="moonDesc">Moon</string>
     <string name="calDesc">calendar</string>
     <string name="questDesc">question</string>
     <string name="prompt">Select a Date</string>
-
+    <string name="selectedDate">Apr 15 2019</string>
+    <string name="backDesc">background</string>
+    <string name="buttText">Ask the Norns</string>
+    <string name="dp">Date Picker</string>
+    <string name="aboutTitle">About NORN</string>
+    <string name="About">The Ancient Norse believed that there were mystical elderly women that controlled the fates of everything living on the planet. They would use the planets to make some of their predictions about the world, and the end of the world, at Ragnarok. This app uses APIs to check astrological statuses and tell you if you should be making big decisions in your life! </string>
 
 </resources>

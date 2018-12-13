@@ -18,11 +18,18 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <!--ACTIVITY TWO-->
         <activity
             android:name=".RTcalendar">
+        </activity>
+        <activity android:name=".Quest">
+            <intent-filter>
+                <action android:name="andriod.intent.action.VIEW"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

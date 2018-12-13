@@ -1,23 +1,93 @@
 package com.example.douglassmith.norn;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class RTcalendar extends AppCompatActivity{
-    private String neededDate;
+    private static final String neededDate = "MainActivity";
+    private TextView usedDate; //DATE TEXT
+    public int Month;
+    public int Year;
+    public int Day;
+    public String DateString;
+    //private Button openPickerButton; //PICK DATE BUTTON
+    //private Button nornButton;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rtcalendar);
-        Intent intent = getIntent();
+        final Button openPickerButton = findViewById(R.id.openPickerButton);
+        View.OnClickListener buttonClick = new View.OnClickListener() {
+            public void onClick(View view) {
+                pickerClicked(view);
+            }
+        };
+        openPickerButton.setOnClickListener(buttonClick);
 
+        final Button nornButton = findViewById(R.id.getFortuneButton);
+        View.OnClickListener nornClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Month == 0 || Day == )
+                Intent intent = new Intent();
+                intent.putExtra("month", Month);
+                intent.putExtra("day", Day);
+                intent.putExtra("year", Year);
+                finish();
+            }
+        };
 
+        SimpleDateFormat formatter
+                = new SimpleDateFormat ("EEE, MMM d, ''yy" );
+        Date currentTime_1 = new Date();
+
+        String dateString = formatter.format(currentTime_1);
+        //Log.i(neededDate,"Date:"+dateString);
+        usedDate = (TextView) findViewById(R.id.selectedDate);
+        usedDate.setText(dateString);
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month=month+1;
+                Log.d(neededDate, "Date: date" + year + "/" + month + "/" + day);
+                String date = month+"/"+day+"/"+year;
+                usedDate.setText(date);
+            }
+
+        };
 
     }
+    public void pickerClicked(View view){
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        Year = year;
+        int month = calendar.get(Calendar.MONTH);
+        Month = month;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        Day = day;
+        DateString = month+"/"+day+"/"+year;
+        DatePickerDialog picker = new DatePickerDialog(
+                RTcalendar.this,
+                android.R.style.Theme_Black,
+                mDateSetListener,
+                year,month,day);
+        picker.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        picker.show();
+    }
+
+
 }
