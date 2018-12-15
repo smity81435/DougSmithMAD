@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">smityFinal</string>
+    <string name="resTitle">You should check out:</string>
+    <string name="earthCont">earth</string>
+    <string name="banner">Build My Za</string>
+    <string name="ZaHint">The Dominator</string>
+    <string name="ToggleOn">Red</string>
+    <string name="ToggleOff">White</string>
+    <string name="crustType">Crust Style: </string>
+    <string name="radio1">Thin</string>
+    <string name="radio2">Thick</string>
+    <string name="pepperoni">pepperoni</string>
+    <string name="sausage">sausage</string>
+    <string name="olives">olives</string>
+    <string name="mushrooms">mushrooms</string>
+    <string name="gluten">Gluten Free</string>
+    <string name="pizzaButt">PIZZA</string>
+    <string name="pizzaSummary"></string>
+    <string name="findPizza">Find Pizza</string>
+    <string name="toggle">toggle</string>
+    <string name="pizzaDesc">This is s a pizza</string>
+
+    <string-array name="size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra Large</item>
+    </string-array>
+</resources>
+

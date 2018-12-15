@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/banner"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/ZaHint"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
+
+    <ToggleButton
+        android:id="@+id/sauce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:checked="true"
+        android:text="@string/toggle"
+        android:textOff="@string/ToggleOff"
+        android:textOn="@string/ToggleOn"
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
+
+    <TextView
+        android:id="@+id/crustStyleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/crustType"
+        app:layout_constraintBottom_toBottomOf="@+id/crustType"
+        app:layout_constraintStart_toStartOf="@+id/editText" />
+
+    <RadioGroup
+        android:id="@+id/crustType"
+        android:layout_width="184dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/crustStyleTitle"
+        app:layout_constraintTop_toBottomOf="@+id/sauce">
+
+        <RadioButton
+
+            android:id="@+id/thin"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radio1"
+            tools:layout_editor_absoluteX="121dp"
+            tools:layout_editor_absoluteY="98dp" />
+
+        <RadioButton
+            android:id="@+id/thick"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radio2"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="97dp" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/pepperoni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pepperoni"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crustType" />
+
+    <CheckBox
+        android:id="@+id/sausage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sausage"
+        app:layout_constraintBottom_toBottomOf="@+id/pepperoni"
+        app:layout_constraintStart_toStartOf="@+id/olives" />
+
+    <CheckBox
+        android:id="@+id/mushrooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/mushrooms"
+        app:layout_constraintStart_toStartOf="@+id/pepperoni"
+        app:layout_constraintTop_toBottomOf="@+id/pepperoni" />
+
+    <CheckBox
+        android:id="@+id/olives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/olives"
+        app:layout_constraintBottom_toBottomOf="@+id/mushrooms"
+        app:layout_constraintStart_toEndOf="@+id/mushrooms" />
+
+    <Spinner
+        android:id="@+id/size"
+        android:layout_width="162dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mushrooms" />
+
+    <Switch
+        android:id="@+id/gluten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/gluten"
+        app:layout_constraintBottom_toBottomOf="@+id/size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/size" />
+
+    <Button
+        android:id="@+id/zaButt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/pizzaButt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gluten" />
+
+    <ImageView
+        android:id="@+id/pizzaPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/pizzaDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zaButt"
+        app:srcCompat="@drawable/pizza_supreme" />
+
+    <TextView
+        android:id="@+id/pizzaSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/pizzaSummary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizzaPic" />
+
+    <Button
+        android:id="@+id/findPizza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/findPizza"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
